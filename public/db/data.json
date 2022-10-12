@@ -9,12 +9,12 @@
       "height": 300
     },
     "weight": "200g",
-    "coments": [
+    "comments": [
       {
         "id": 1,
         "productId": 1,
         "description": "asd",
-        "date": "2022-04-01"
+        "date": "10/12/2022, 10:36 PM"
       }
     ]
   },
@@ -28,7 +28,7 @@
       "height": 300
     },
     "weight": "200g",
-    "coments": [
+    "comments": [
       {
         "id": 2
       }
@@ -44,12 +44,12 @@
       "height": 300
     },
     "weight": "200g",
-    "coments": [
+    "comments": [
       {
         "id": 2,
         "productId": 3,
         "description": "asd",
-        "date": "2022-04-01"
+        "date": "10/12/2022, 10:36 PM"
       }
     ]
   },
@@ -63,12 +63,12 @@
       "height": 300
     },
     "weight": "200g",
-    "coments": [
+    "comments": [
       {
         "id": 4,
         "productId": 4,
         "description": "asd",
-        "date": "2022-04-01"
+        "date": "10/12/2022, 10:36 PM"
       }
     ]
   }

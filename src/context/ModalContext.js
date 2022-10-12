@@ -7,8 +7,8 @@ import useModal from '../hooks/useModal'
 let ModalContext
 let { Provider } = (ModalContext = React.createContext())
 
-let ModalProvider = ({ children }) => {
-  let { modal, handleModal, modalContent } = useModal()
+const ModalProvider = ({ children }) => {
+  const { modal, handleModal, modalContent } = useModal()
   return (
     <Provider value={{ modal, handleModal, modalContent }}>
       <Modal />

@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { addNewProduct, editProduct } from '../../slices/getPoducts'
+import {ModalContext} from "../../context/ModalContext";
 
 const AddProductForm = ({ product, id }) => {
+
+    const { handleModal } = React.useContext(ModalContext)
+
     const [inputValue, setInputValue] = useState({
         name: product?.name || '',
         count: product?.count || '',
@@ -22,10 +26,11 @@ const AddProductForm = ({ product, id }) => {
   const onHandleSubmit = (e) => {
     e.preventDefault()
       if (product) {
-        dispatch(editProduct({id}))
+        dispatch(editProduct({ id, ...inputValue }))
       } else {
           dispatch(addNewProduct(inputValue))
     }
+      handleModal()
   }
   return (
     <form onSubmit={onHandleSubmit}>

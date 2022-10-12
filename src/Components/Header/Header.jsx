@@ -1,9 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { ModalContext } from '../../context/ModalContext'
 import AddProductForm from '../AddProductForm/AddProductForm'
+import {useDispatch} from "react-redux";
+import {sortProduct} from "../../slices/getPoducts";
 
 const Header = () => {
-    const { handleModal } = React.useContext(ModalContext)
+    const { handleModal } = React.useContext(ModalContext);
+    const dispatch = useDispatch();
+    const [open, setOpen] = useState(false);
+
+    const handleSort = (type) => {
+      dispatch(sortProduct(type))
+    }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -52,22 +60,22 @@ const Header = () => {
                 href="#"
                 role="button"
                 aria-haspopup="true"
-                aria-expanded="false">
-                Dropdown
+                aria-expanded="false"
+                onClick={() => setOpen(prevState => !prevState)}>
+                Sort Product
               </a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" href="#">
-                  Action
+              <div className={open? "dropdown-menu d-block" : "dropdown-menu "}>
+                <a className="dropdown-item" href="#" onClick={() => handleSort('A-Z')}>
+                  A-Z
                 </a>
                 <a className="dropdown-item" href="#">
-                  Another action
+                  Z-A
                 </a>
                 <a className="dropdown-item" href="#">
-                  Something else here
+                  Min Count
                 </a>
-                <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="#">
-                  Separated link
+                  Max Count
                 </a>
               </div>
             </li>

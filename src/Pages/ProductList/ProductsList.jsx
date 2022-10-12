@@ -12,7 +12,7 @@ const ProductsList = () => {
   }, [])
     return (
       <div className="list-group">
-        {products.map((product) => (
+        {products?.map((product) => (
           <li key={product.id} className="list-group-item d-flex  justify-content-center">
             <ProductItem product={product} />
           </li>

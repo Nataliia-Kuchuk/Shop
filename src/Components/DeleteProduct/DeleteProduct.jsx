@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { ModalContext } from '../../context/ModalContext'
 import { deleteProduct } from '../../slices/getPoducts'
 
-const DeleteProduct = ({ id }) => {
+const DeleteProduct = ({ id, product }) => {
   const dispatch = useDispatch()
   const { handleModal } = React.useContext(ModalContext)
   const handleDelete = () => {
@@ -13,9 +13,9 @@ const DeleteProduct = ({ id }) => {
   }
   return (
     <div>
-      <h1>Do you want delete this product?</h1>
+      <h4>Do you want delete: <b>{product.name}</b>?</h4>
       <button type="submit" className="btn btn-primary" onClick={handleDelete}>
-        Save changes
+        Delete
       </button>
       <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
         Close
@@ -24,7 +24,8 @@ const DeleteProduct = ({ id }) => {
   )
 }
 DeleteProduct.propTypes = {
-  id: PropTypes.number
+  id: PropTypes.number,
+    product:PropTypes.object
 }
 
 
