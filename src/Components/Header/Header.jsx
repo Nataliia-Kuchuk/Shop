@@ -1,9 +1,9 @@
 import React from 'react'
 import { ModalContext } from '../../context/ModalContext'
+import AddProductForm from '../AddProductForm/AddProductForm'
 
 const Header = () => {
     const { handleModal } = React.useContext(ModalContext)
-    console.log(handleModal)
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -22,11 +22,11 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarColor02">
           <ul className="navbar-nav me-auto">
-            <li className="nav-item">
+                      <li className="nav-item">
               <button
                 type="button"
                 className="btn btn-outline-info"
-                onClick={() => handleModal('This is component modal content')}>
+                onClick={() => handleModal(<AddProductForm/>)}>
                 Add New Product
               </button>
             </li>

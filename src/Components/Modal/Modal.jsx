@@ -25,14 +25,6 @@ const Modal = () => {
             <div className="modal-body">
               <p>{modalContent}</p>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
-            </div>
           </div>
         </div>
       </div>,
