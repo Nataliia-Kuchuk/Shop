@@ -1,8 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ModalContext } from '../../context/ModalContext'
+import DeleteProduct from '../DeleteProduct/DeleteProduct'
 import './ProductItem.css'
+import AddProductForm from '../AddProductForm/AddProductForm'
+
 const ProductItem = ({ product }) => {
+  const { handleModal } = React.useContext(ModalContext)
   const { width, height } = product.size
+
+  const handleDeletItem = (id) => {
+    handleModal(<DeleteProduct handleModal={handleModal} id={id} />)
+    }
+    const handleEditItem = (id) => {
+        handleModal(<AddProductForm product={product} id={id} />)
+    }
   return (
     <>
       <div className="card mb-3 w-20">
@@ -26,12 +38,18 @@ const ProductItem = ({ product }) => {
           <li className="list-group-item">Height: {height}</li>
         </ul>
         <div className="card-body">
-          <a href="#" className="card-link">
-            Card link
-          </a>
-          <a href="#" className="card-link">
-            Another link
-          </a>
+          <button
+            type="button"
+            className="btn btn-outline-info"
+            onClick={() => handleEditItem(product.id)}>
+            Edit
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-danger"
+            onClick={() => handleDeletItem(product.id)}>
+            Danger
+          </button>
         </div>
         <div className="card-footer text-muted">2 days ago</div>
       </div>
